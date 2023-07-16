@@ -1,12 +1,12 @@
 use rand::Rng;
 
 fn main() {
-    println!("Hello, packages! Thanks for coming!");
+    println!("Hello, workspaces! Thanks for coming!");
     
     //There's more than one toml here: 
-        //one that configures the entire package, and one that just configures adder
-    //The package toml doesn't have a workspace section, it has a package section
-    //Also when you run cargo buil the target file goes into the root dir of the workspace
+        //one that configures the entire workspace, and one that just configures the adder package
+    //The workspace toml has a workspace section with the filepath of the members of the workspace
+    //Also when you run cargo build the target file goes into the root dir of the workspace
     //That's because all these crates are supposed to work together, 
         //so they should compile to the same target.
     //If crates in a package made their own targets and called each other,
@@ -16,7 +16,7 @@ fn main() {
     let x = 10;
     println!("{x} + 1 is {}", add_one::add_one(x));
     //Since this is the package's only bin, we can just cargo run
-    //If we only want to compile + run this crate, we can use -p and put the dir name
+    //If we only want to compile + run this crate, (like if we had another bin) we can use -p and put the dir name
         //cargo run -p adder
 
     println!("Notice how we only have one Cargo.lock file");
@@ -34,6 +34,6 @@ fn main() {
 
 
     //Remember the crates in your package are separate crates
-    //They can be tested separately and are published separately
+    //They can be tested separately and are published separately (cargo test -p file_name, cargo publish -p file_name)
     //They also have different gits so that'll be fun to manage :D:D:D:D:D:D:D:D
 }
