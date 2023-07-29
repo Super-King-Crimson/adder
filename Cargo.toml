@@ -5,6 +5,8 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# note the explicit dependency path to add_one! 
+# you need one for this to be a proper package and to have them be properly interconnected
 [dependencies]
 add_one = { path = "../add_one" }
 rand = "0.8.5"
